@@ -24,6 +24,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias dateup="sudo date -s \"$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z\""
 alias crdiff='svn diff | colordiff | less -R'
+alias mysql='mysql --pager="less -SX"'
 
 function goUp {
   num=$1
