@@ -23,8 +23,10 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias dateup="sudo date -s \"$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z\""
+alias svnst="svn st | awk '!/public/' "
 alias mysql='mysql --pager="less -SX"'
 alias svnaddall='svn add . --force'
+alias st="status"
 
 function crdiff {
   svn diff $(svn st | awk '{print $2}' | awk '!/public/') | colordiff | less -R
