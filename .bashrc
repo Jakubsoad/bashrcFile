@@ -28,7 +28,21 @@ alias svnaddall='svn add . --force'
 alias st="status"
 
 function crdiff {
-  svn diff $(svn st | awk '{print $2}' | awk '!/public/') | colordiff | less -R
+  local numberOfModifiedFiles=$(eval "svn st | awk '{print $2}' | awk '!/public/' | wc -l")  
+  if (( $numberOfModifiedFiles > 0 )); then 
+    svn diff $(svn st | awk '{print $2}' | awk '!/public/') | colordiff | less -R
+  else
+    echo "There are no files to edit"
+  fi
+}
+
+function albert {
+  local test=0
+  if (( $test > 0 )); then
+    echo 'elo';
+  else
+    echo 'essa';
+  fi
 }
 
 function dateup {
