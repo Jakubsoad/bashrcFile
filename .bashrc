@@ -26,6 +26,7 @@ alias svnst="svn st | awk '!/public/' "
 alias mysql='mysql --pager="less -SX"'
 alias svnaddall='svn add . --force'
 alias st="status"
+alias svnrm="svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm"
 
 function crdiff {
   local numberOfModifiedFiles=$(eval "svn st | awk '{print $2}' | awk '!/public/' | wc -l")  
@@ -33,15 +34,6 @@ function crdiff {
     svn diff $(svn st | awk '{print $2}' | awk '!/public/') | colordiff | less -R
   else
     echo "There are no files to edit"
-  fi
-}
-
-function albert {
-  local test=0
-  if (( $test > 0 )); then
-    echo 'elo';
-  else
-    echo 'essa';
   fi
 }
 
