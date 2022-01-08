@@ -26,7 +26,6 @@ alias svnst="svn st | awk '!/public/' "
 alias mysql='mysql --pager="less -SX"'
 alias svnaddall='svn add . --force'
 alias st="status"
-alias svnrm="svn st | grep ^! | awk '{print " --force "$2}' | xargs svn rm"
 
 function crdiff {
   local numberOfModifiedFiles=$(eval "svn st | awk '{print $2}' | awk '!/public/' | wc -l")  
