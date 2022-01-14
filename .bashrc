@@ -30,7 +30,7 @@ alias st="status"
 function crdiff {
   local numberOfModifiedFiles=$(eval "svn st | awk '{print $2}' | awk '!/public/' | wc -l")  
   if (( $numberOfModifiedFiles > 0 )); then 
-    svn diff $(svn st | awk '{print $2}' | awk '!/public/') | colordiff | less -R
+    svn diff $(svn st | awk '!/\?/' | awk '{print $2}' | awk '!/public/') | colordiff | less -R
   else
     echo "There are no files to edit"
   fi
